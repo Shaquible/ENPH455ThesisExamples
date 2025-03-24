@@ -1,14 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
+    <h1>
+        Keegan Kelly ENPH 455 Thesis Listening Examples
+    </h1>
+<!-- <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audio Player</title>
+</head>
+<body>
+    <h1>Model</h1>
+    <audio controls>
+        <source src="5150Lead/model.wav" type="audio/wav">
+    </audio>
+</body>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Audio Player</title>
 </head>
 <body>
-    <h1>%150 Lead Model</h1>
+    <h1>Real Output</h1>
     <audio controls>
-        <source src="5150Lead/Model.wav" type="audio/wav">
+        <source src="5150Lead/reference.wav" type="audio/wav">
     </audio>
-</body>
+</body> -->
 </html>
+<script>
+    const subdirs = ['5150Lead', '5150LeadLowGain', '5150LeadMiked', '5150Rythmn4', "5150Rythmn6", "DVerb4", "DVerb5", "OrangeClean", "OrangeCrunchHighGain", "OrangeCrunchLowGain"];
+    const names = ['5150 Lead Higher Gain', '5150 Lead Lower Gain', '5150 Lead Higher Gain Miked', '5150 Rhythm Lower Gain', '5150 Rhythm Higher Gain', 'Deluxe Reverb Lower Gain', 'Deluxe Reverb Higher Gain', 'TH30 Clean', 'TH30 Dirty Higher Gain', 'TH30 Dirty Lower Gain'];
+    const body = document.querySelector('body');
+    names.forEach((name, index) => {
+        const subdir = subdirs[index];
+
+        const header = document.createElement('h2');
+        header.textContent = name;
+        body.appendChild(header);
+
+        const modelHeader = document.createElement('p');
+        modelHeader.textContent = `Model`;
+        body.appendChild(modelHeader);
+
+        const modelAudio = document.createElement('audio');
+        modelAudio.controls = true;
+        const modelSource = document.createElement('source');
+        modelSource.src = `${subdir}/model.wav`;
+        modelSource.type = 'audio/wav';
+        modelAudio.appendChild(modelSource);
+        body.appendChild(modelAudio);
+
+        const realHeader = document.createElement('p');
+        realHeader.textContent = `Real Output`;
+        body.appendChild(realHeader);
+
+        const realAudio = document.createElement('audio');
+        realAudio.controls = true;
+        const realSource = document.createElement('source');
+        realSource.src = `${subdir}/reference.wav`;
+        realSource.type = 'audio/wav';
+        realAudio.appendChild(realSource);
+        body.appendChild(realAudio);
+    });
+</script></script>
